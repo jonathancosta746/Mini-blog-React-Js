@@ -20,11 +20,19 @@ const CreatePost = () => {
     setFormError("");
 
     //validate image URL
+    try {
+      new URL(image)
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL.");
+    }
+
 
     //Criar array de tags
 
 
     //Check todos os valores
+
+    if(formError) return;
 
     insertDocument({
       title,
@@ -63,7 +71,7 @@ const CreatePost = () => {
             required 
             placeholder="Insira uma imagem que representa seu post"
             onChange={(e) => setImage(e.target.value)}
-            value={title}
+            value={image}
           />
         </label>
         <label>
@@ -95,7 +103,7 @@ const CreatePost = () => {
           </button>
         )}
         {response.error && <p className="error">{response.error}</p>}
-        
+        {formError && <p className="error">{formError}</p>}
       </form>
     </div>
   );
