@@ -23,6 +23,7 @@ import Post from './pages/Posts/Post';
 //Components
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import EditPost from './pages/EditPost/EditPost';
 
 
 
@@ -68,6 +69,10 @@ function App() {
                 <Route 
                   path="/register" 
                   element={!user ? <Register /> : <Navigate to="/" />}
+                />
+                <Route 
+                  path="/posts/edit/:id" 
+                  element={user ? <EditPost /> : <Navigate to="/login" />}
                 />
                 <Route 
                   path="/posts/create" 
