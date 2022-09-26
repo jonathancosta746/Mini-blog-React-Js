@@ -1,8 +1,59 @@
 body {
   background-color: #f6fcff;
-  padding: 0;
-  margin: 0;
   font-family: "Montserrat", sans-serif;
+}
+
+.menu.active{
+  display: flex;
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  right: 0;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-bottom: 100%;
+  justify-content: center;
+  top: -100px;
+  bottom: -100px;
+  background-color: #0f730c;
+}
+
+.menu {
+  display: none;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  gap: 1rem;
+  border-radius: 20px;
+  list-style: none;
+  padding: 1.5rem 2rem;
+} 
+
+li{
+  padding-bottom: 1rem;
+}
+
+li:hover{
+  color: #359932;
+}
+
+
+/*=============== BREAKPOINTS MENU ===============*/
+/* For medium devices */ 
+@media screen and (min-width: 765px){
+  .menu.active{
+    justify-content: center;
+  }
+  
+  li{
+    padding-left: 2rem;
+    padding-top: 3rem;
+    font-size: 1.5rem;
+  }
 }
 
 input::placeholder,

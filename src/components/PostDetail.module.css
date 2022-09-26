@@ -6,7 +6,12 @@
 }
 
 .post_detail img {
-    max-width: 600px;
+    width:389px;
+    height:300px;
+}
+
+.post_image{
+    object-fit: cover;
 }
 
 .post_detail h2{
@@ -32,3 +37,12 @@
     font-size: 0.8em;
     margin-bottom: 1em;
 }
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */ 
+@media screen and (min-width: 765px){
+    .post_detail img {
+        width:765px;
+        height:765px;
+    }
+  }
