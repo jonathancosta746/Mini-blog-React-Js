@@ -1,22 +1,34 @@
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useAuthentication } from "../hooks/useAuthentication";
-
 import { useAuthValue } from "../context/AuthContext";
 
 import styles from "./NavBar.module.css";
+import { Menu } from '@mui/icons-material';
 
 const NavBar = () => {
 
     const {user} = useAuthValue();
     const {logout} = useAuthentication();
 
+    //hamburguer menu
+    const dropDownRef = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+    const onClick = () => setIsActive(!isActive);
+
   return (
     <nav className={styles.navbar}>
         <NavLink to="/" className={styles.brand}>Mini <span>Blog</span></NavLink>
-        <ul className={styles.links_list}>
+
+        <button onClick={onClick} className={styles.open__menu}>
+            <Menu />
+        </button>
+        
+
+        <ul className={`menu ${isActive ? "active" : "inactive"}`} ref={dropDownRef}>
             <li>
-                <NavLink to="/" className={({isActive}) => (isActive ? styles.active : "")}>Home</NavLink>
+                <NavLink to="/">Home</NavLink>
             </li>
             {!user && (
                 <>

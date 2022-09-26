@@ -8,7 +8,18 @@
 
 .brand{
     font-size: 1.2em;
+    padding-left: 2.5em;
+    margin: auto;
+    padding-top: 15px;
 }
+
+.open__menu{
+    display: none;
+    z-index: 100;
+    display: flex;
+        cursor: pointer;
+}
+
 
 .brand span{
     font-weight: 900;
@@ -26,9 +37,4 @@
 
 .links_list li a {
     padding: .4em .6em;
-}
-
-.active{
-    background-color: #000;
-    color: #fff;
 }
